@@ -11,7 +11,7 @@ dependencies:
 
 test:
   override:
-    - cd gtoken/ && go build && mv 
+    - cd gtoken/ && go build 
 
 deployment:
   appengine:
