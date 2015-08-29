@@ -1,4 +1,4 @@
-application: your-app-id
+application: gcpug-shonan-demo
 version: 1
 runtime: go
 api_version: go1
@@ -9,36 +9,45 @@ handlers:
   static_files: caterpillar/static/mng/index.html
   upload: caterpillar/static/mng/index.html
   login: admin
+  secure: always
 
 - url: /caterpillar/static/(.*)
   static_files: caterpillar/static/\1
   upload: caterpillar/static/.*
   login: admin
+  secure: always
 
 - url: /caterpillar/api/.*
   script: _go_app
   login: admin
+  secure: always
 
 - url: /_ah/queue/go/delay
   script: _go_app
   login: admin
+  secure: always
 
 - url: /caterpillar/.*
   script: _go_app
+  secure: always
 
 - url: /.*\.view
   script: _go_app
+  secure: always
 
 - url: /.*\.edit
   script: _go_app
   login: admin
+  secure: always
 
 - url: /(.+)
   static_files: static/\1
   upload: static/.*
   application_readable: true
+  secure: always
 
 - url: /
   script: _go_app
+  secure: always
 
 
