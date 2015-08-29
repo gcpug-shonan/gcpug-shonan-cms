@@ -19,5 +19,5 @@ deployment:
   appengine:
     branch: master
     commands:
-      - script/decrypt
+      - sh script/decrypt
       - $HOME/go_appengine/appcfg.py update . --oauth2_access_token $(./gtoken/gtoken --json ./.secret/key.json)
