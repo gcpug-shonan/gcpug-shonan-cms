@@ -12,6 +12,7 @@ dependencies:
     - $HOME/go_appengine/goapp get code.google.com/p/go-uuid/uuid
     - $HOME/go_appengine/goapp get github.com/go-martini/martini
     - $HOME/go_appengine/goapp get google.golang.org/api/storage/v1
+    - $HOME/go_appengine/goapp get google.golang.org/grpc
     - go get -u golang.org/x/oauth2
     - go get -u google.golang.org/cloud/compute/metadata
 
