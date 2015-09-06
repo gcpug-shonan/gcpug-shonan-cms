@@ -1,0 +1,10 @@
+{
+  "name": "gcpug-shonan",
+  "version": "0.0.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.4",
+    "iron-image": "PolymerElements/iron-image#~1.0.2",
+    "paper-styles": "PolymerElements/paper-styles#~1.0.11"
+  }
+}

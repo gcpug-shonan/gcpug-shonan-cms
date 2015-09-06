@@ -1,0 +1,39 @@
+<link rel="import" href="/components/iron-ajax/iron-ajax.html">
+<link rel="import" href="/components/iron-image/iron-image.html">
+<link rel="import" href="/components/paper-styles/classes/typography.html">
+<link rel="import" href="/components/iron-flex-layout/classes/iron-flex-layout.html">
+
+<dom-module id="proto-element">
+  <template>
+    <iron-ajax auto
+        url="http://qiita.com/api/v2/items"
+        params='{"page":"1", "per_page":"20", "query":"qiita tag:GoogleCloudPlatform"}'
+        handle-as="json"
+        last-response="{{ajaxResponse}}"></iron-ajax>
+
+    <h1>Qiita Feed (tag:GoogleCloudPlatform)</h1>
+    <section class="flex layout horizontal wrap" style="display:block;">
+      <template is="dom-repeat" items="[[ajaxResponse]]">
+        <div style="border-bottom: 1px solid #ccc;">
+          <h2><a href="[[url(item.user.id, item.id)]]" target="_blank">[[item.title]]</a></h2>
+          <iron-image src="[[item.user.profile_image_url]]" width="50" height="50" sizing="cover" preload fade></iron-image>
+          <p>[[item.user.id]]</p>
+        </div>
+      </template>
+    </section>
+    <script>
+      var app = document.querySelector('#app');
+
+      app.url = function (userId, itemId) {
+        return 'http://qiita.com/' + userId + '/items/' + itemId;
+      };
+    </script>
+  </template>
+
+  <script>
+    // register a new element called proto-element
+    Polymer({
+      is: "proto-element",
+    });
+  </script>
+</dom-module>
