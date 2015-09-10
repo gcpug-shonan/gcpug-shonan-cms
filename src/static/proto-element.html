@@ -14,10 +14,15 @@
     <h1>Qiita Feed (tag:GoogleCloudPlatform)</h1>
     <section class="flex layout horizontal wrap" style="display:block;">
       <template is="dom-repeat" items="[[ajaxResponse]]">
-        <div style="border-bottom: 1px solid #ccc;">
-          <h2><a href="[[url(item.user.id, item.id)]]" target="_blank">[[item.title]]</a></h2>
-          <iron-image src="[[item.user.profile_image_url]]" width="50" height="50" sizing="cover" preload fade></iron-image>
-          <p>[[item.user.id]]</p>
+        <div class="dialog">
+          <div class="content">
+            <div class="title"><a href="[[url(item.user.id, item.id)]]" target="_blank">[[item.title]]</a></div>
+          </div>
+          <iron-image src="[[item.user.profile_image_url]]" width="40" height="40" sizing="cover" preload fade></iron-image>
+          <div class="attend">
+            <div class="created-at">[[dateformat(item.created_at)]]</div>
+            <div class="user">[[item.user.id]]</div>
+          </div>
         </div>
       </template>
     </section>
@@ -26,6 +31,12 @@
 
       app.url = function (userId, itemId) {
         return 'https://qiita.com/' + userId + '/items/' + itemId;
+      };
+      app.dateformat = function (dt) {
+        var backToDate = new Date(dt)
+        return backToDate.getFullYear() + '-'
+             + (backToDate.getMonth() + 1 )+ '-'
+             + backToDate.getDate();
       };
     </script>
   </template>

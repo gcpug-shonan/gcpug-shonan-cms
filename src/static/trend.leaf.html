@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="description" content="[[.description ページの説明]]">
     <meta name="keyword" content="[[.keyword ページキーワード]][[.Keyword 共通キーワード]]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <title>[[.subtitle サブタイトル]] - [[.Title 共通タイトル]]</title>
     <script src="/components/webcomponentsjs/webcomponents-lite.min.js"></script>
     <link rel="import" href="proto-element.html">
@@ -15,6 +19,54 @@
       iron-image {
         background-color: lightgray;
         margin: 1em;
+      }
+      section {
+        padding: 30px 25px;
+      }
+      section > * {
+        margin: 10px
+      }
+      /* Card, Dialog */
+      .card, .dialog {
+        position: relative;
+        display: inline-block;
+        width: 300px;
+        height: 240px;
+        vertical-align: top;
+        background-color: #fff;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+      }
+      .dialog > .content {
+        height: 120px;
+        font-size: 0.9em;
+      }
+
+      .dialog > .content > .title {
+        font-size: 1.3em;
+      }
+
+      .dialog > iron-image {
+        float: left;
+      }
+      .dialog > .attend {
+        margin-top: 14px;
+        float: left;
+      }
+      /* Misc */
+      .center {
+        text-align: center;
+      }
+
+      .label {
+        padding: 0 16px;
+      }
+
+      .label-blue {
+        color: #4285f4;
+      }
+
+      .label-red {
+        color: #d23f31;
       }
     </style>
 </head>
